@@ -1,0 +1,918 @@
+/* =========================================================
+   STUDENT MANAGEMENT SYSTEM
+   Professional Blue SaaS UI
+========================================================= */
+
+:root {
+  --bg: #f6f8fc;
+  --surface: #ffffff;
+  --surface-soft: #f8fafc;
+
+  --border: #e4e8ef;
+  --border-hover: #cbd5e1;
+
+  --text: #172033;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --primary-light: #eff6ff;
+  --primary-border: #bfdbfe;
+
+  --danger: #ef4444;
+  --danger-hover: #dc2626;
+  --danger-light: #fef2f2;
+  --danger-border: #fecaca;
+
+  --radius: 12px;
+
+  --shadow: 0 2px 8px rgba(15, 23, 42, 0.05);
+  --shadow-hover: 0 8px 24px rgba(15, 23, 42, 0.08);
+}
+
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+
+  font-family:
+    Inter,
+    "Segoe UI",
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
+
+  background:
+    radial-gradient(
+      circle at 10% 0%,
+      rgba(37, 99, 235, 0.045),
+      transparent 25%
+    ),
+    #f6f8fc;
+
+  color: var(--text);
+
+  -webkit-font-smoothing: antialiased;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+
+/* =========================================================
+   PAGE
+========================================================= */
+
+.page {
+  width: 100%;
+  min-height: 100vh;
+
+  padding: 40px 5vw 65px;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.page-header {
+  margin-bottom: 30px;
+}
+
+.page-header h1 {
+  margin: 0;
+
+  color: var(--text);
+
+  font-size: clamp(30px, 4vw, 38px);
+
+  line-height: 1.2;
+
+  font-weight: 700;
+
+  letter-spacing: -0.6px;
+}
+
+.subtitle {
+  margin: 8px 0 0;
+
+  color: var(--text-muted);
+
+  font-size: 15px;
+}
+
+
+/* =========================================================
+   ERROR BANNER
+========================================================= */
+
+.error-banner {
+  width: 100%;
+
+  margin-bottom: 22px;
+
+  padding: 13px 16px;
+
+  border: 1px solid var(--danger-border);
+
+  border-radius: 9px;
+
+  background: var(--danger-light);
+
+  color: #b91c1c;
+
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   MAIN SPLIT LAYOUT
+========================================================= */
+
+.layout {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(290px, 340px)
+    minmax(0, 1fr);
+
+  gap: 24px;
+
+  align-items: start;
+}
+
+
+/* =========================================================
+   PANELS
+========================================================= */
+
+.panel {
+  width: 100%;
+
+  padding: 24px;
+
+  background: rgba(255, 255, 255, 0.97);
+
+  border: 1px solid var(--border);
+
+  border-radius: var(--radius);
+
+  box-shadow: var(--shadow);
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.panel:hover {
+  border-color: #d8dee8;
+
+  box-shadow: var(--shadow-hover);
+}
+
+.panel h2 {
+  margin: 0 0 21px;
+
+  color: var(--text);
+
+  font-size: 19px;
+
+  font-weight: 650;
+
+  letter-spacing: -0.15px;
+}
+
+
+/* =========================================================
+   FORM PANEL
+========================================================= */
+
+.form-panel {
+  position: sticky;
+  top: 24px;
+}
+
+
+/* =========================================================
+   FORM FIELDS
+========================================================= */
+
+.form-field {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 7px;
+
+  margin-bottom: 17px;
+}
+
+.form-field label {
+  color: var(--text-secondary);
+
+  font-size: 13px;
+
+  font-weight: 600;
+}
+
+.form-field input,
+.form-field select {
+  width: 100%;
+
+  padding: 11px 13px;
+
+  border: 1px solid var(--border-hover);
+
+  border-radius: 8px;
+
+  background: #ffffff;
+
+  color: var(--text);
+
+  font-size: 14px;
+
+  transition:
+    border-color 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+.form-field input::placeholder {
+  color: #94a3b8;
+}
+
+.form-field input:hover,
+.form-field select:hover {
+  border-color: #94a3b8;
+}
+
+.form-field input:focus,
+.form-field select:focus {
+  outline: none;
+
+  border-color: var(--primary);
+
+  box-shadow:
+    0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.form-field select {
+  cursor: pointer;
+}
+
+.form-field select option {
+  background: #ffffff;
+  color: var(--text);
+}
+
+.field-error {
+  color: var(--danger);
+
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   FORM ACTIONS
+========================================================= */
+
+.form-actions {
+  display: flex;
+
+  gap: 10px;
+
+  margin-top: 22px;
+}
+
+.btn {
+  border: none;
+
+  border-radius: 8px;
+
+  padding: 11px 17px;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.18s ease,
+    border-color 0.18s ease,
+    color 0.18s ease,
+    box-shadow 0.18s ease,
+    transform 0.15s ease;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+
+/* =========================================================
+   PRIMARY BUTTON
+========================================================= */
+
+.btn-primary {
+  background: var(--primary);
+
+  color: #ffffff;
+
+  box-shadow:
+    0 2px 5px rgba(37, 99, 235, 0.18);
+}
+
+.btn-primary:hover {
+  background: var(--primary-hover);
+
+  box-shadow:
+    0 4px 10px rgba(37, 99, 235, 0.22);
+
+  transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   SECONDARY BUTTON
+========================================================= */
+
+.btn-secondary {
+  background: #f1f5f9;
+
+  color: var(--text-secondary);
+
+  border: 1px solid var(--border);
+}
+
+.btn-secondary:hover {
+  background: #e8edf3;
+
+  color: var(--text);
+}
+
+
+/* =========================================================
+   LIST HEADER
+========================================================= */
+
+.list-panel-header {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  gap: 18px;
+
+  margin-bottom: 19px;
+
+  flex-wrap: wrap;
+}
+
+.list-panel-header h2 {
+  margin: 0;
+}
+
+
+/* =========================================================
+   SEARCH BAR
+========================================================= */
+
+.search-bar {
+  position: relative;
+
+  width: 100%;
+
+  max-width: 330px;
+}
+
+.search-bar input {
+  width: 100%;
+
+  padding: 11px 40px 11px 14px;
+
+  border: 1px solid var(--border-hover);
+
+  border-radius: 8px;
+
+  background: #ffffff;
+
+  color: var(--text);
+
+  font-size: 14px;
+
+  transition:
+    border-color 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+.search-bar input::placeholder {
+  color: #94a3b8;
+}
+
+.search-bar input:hover {
+  border-color: #94a3b8;
+}
+
+.search-bar input:focus {
+  outline: none;
+
+  border-color: var(--primary);
+
+  box-shadow:
+    0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.clear-btn {
+  position: absolute;
+
+  right: 7px;
+
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  width: 28px;
+  height: 28px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+
+  border-radius: 6px;
+
+  background: transparent;
+
+  color: var(--text-muted);
+
+  cursor: pointer;
+
+  transition:
+    background 0.15s ease,
+    color 0.15s ease;
+}
+
+.clear-btn:hover {
+  background: #f1f5f9;
+
+  color: var(--text);
+}
+
+
+/* =========================================================
+   TABLE CONTAINER
+========================================================= */
+
+.table-wrapper {
+  width: 100%;
+
+  overflow-x: auto;
+
+  border: 1px solid var(--border);
+
+  border-radius: 10px;
+
+  background: #ffffff;
+}
+
+
+/* =========================================================
+   TABLE
+========================================================= */
+
+.student-table {
+  width: 100%;
+
+  min-width: 680px;
+
+  border-collapse: collapse;
+}
+
+.student-table th,
+.student-table td {
+  text-align: left;
+
+  padding: 15px 16px;
+
+  border-bottom: 1px solid var(--border);
+
+  font-size: 14px;
+}
+
+.student-table th {
+  background: #f8fafc;
+
+  color: var(--text-muted);
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.06em;
+}
+
+.student-table td {
+  background: #ffffff;
+
+  color: var(--text-secondary);
+}
+
+.student-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.student-table tbody tr {
+  transition: background 0.15s ease;
+}
+
+.student-table tbody tr:hover td {
+  background: #f7faff;
+}
+
+
+/* =========================================================
+   STUDENT NAME
+========================================================= */
+
+.student-name {
+  color: var(--text) !important;
+
+  font-weight: 650;
+
+  font-size: 14px !important;
+}
+
+
+/* =========================================================
+   COURSE BADGE
+========================================================= */
+
+.course-badge {
+  display: inline-flex;
+
+  align-items: center;
+
+  padding: 5px 10px;
+
+  border-radius: 999px;
+
+  background: #eff6ff;
+
+  border: 1px solid #bfdbfe;
+
+  color: #2563eb;
+
+  font-size: 12px;
+
+  font-weight: 650;
+}
+
+
+/* =========================================================
+   YEAR BADGE
+========================================================= */
+
+.year-badge {
+  display: inline-flex;
+
+  align-items: center;
+
+  padding: 5px 10px;
+
+  border-radius: 999px;
+
+  background: #f5f3ff;
+
+  border: 1px solid #ddd6fe;
+
+  color: #6d28d9;
+
+  font-size: 12px;
+
+  font-weight: 650;
+}
+
+
+/* =========================================================
+   EDITING ROW
+========================================================= */
+
+.row-editing td {
+  background: #eff6ff !important;
+}
+
+
+/* =========================================================
+   ACTIONS
+========================================================= */
+
+.actions-col {
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   EDIT / DELETE BUTTONS
+========================================================= */
+
+.btn-small {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  min-width: 58px;
+
+  height: 34px;
+
+  padding: 0 11px;
+
+  margin-right: 7px;
+
+  border: 1px solid #dbe2ea;
+
+  border-radius: 7px;
+
+  background: #f8fafc;
+
+  color: #475569;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  white-space: nowrap;
+
+  cursor: pointer;
+
+  transition:
+    background 0.18s ease,
+    color 0.18s ease,
+    border-color 0.18s ease,
+    box-shadow 0.18s ease,
+    transform 0.15s ease;
+}
+
+.btn-small:hover {
+  background: var(--primary-light);
+
+  border-color: var(--primary-border);
+
+  color: var(--primary);
+
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 3px 8px rgba(37, 99, 235, 0.1);
+}
+
+
+/* =========================================================
+   DELETE BUTTON
+========================================================= */
+
+.btn-danger {
+  min-width: 64px;
+
+  background: #fff7f7;
+
+  border-color: var(--danger-border);
+
+  color: var(--danger);
+}
+
+.btn-danger:hover {
+  background: var(--danger-light);
+
+  border-color: #fca5a5;
+
+  color: var(--danger-hover);
+
+  box-shadow:
+    0 3px 8px rgba(239, 68, 68, 0.1);
+}
+
+
+/* =========================================================
+   EMPTY / LOADING STATE
+========================================================= */
+
+.empty-state {
+  margin: 0;
+
+  padding: 48px 20px !important;
+
+  text-align: center;
+
+  color: var(--text-muted);
+
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .page {
+    padding: 32px 24px 55px;
+  }
+
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .form-panel {
+    position: static;
+  }
+
+  .search-bar {
+    max-width: 100%;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .page {
+    padding: 26px 14px 45px;
+  }
+
+  .page-header {
+    margin-bottom: 24px;
+  }
+
+  .page-header h1 {
+    font-size: 28px;
+  }
+
+  .subtitle {
+    font-size: 14px;
+  }
+
+  .panel {
+    padding: 18px;
+
+    border-radius: 11px;
+  }
+
+  .list-panel-header {
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+  .search-bar {
+    max-width: none;
+  }
+
+
+  /* -------------------------------------------------------
+     MOBILE TABLE → CARDS
+  ------------------------------------------------------- */
+
+  .student-table {
+    min-width: 0;
+  }
+
+  .student-table thead {
+    display: none;
+  }
+
+  .student-table tbody tr {
+    display: block;
+
+    margin-bottom: 12px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 9px;
+
+    overflow: hidden;
+
+    background: #ffffff;
+  }
+
+  .student-table tbody tr:last-child {
+    margin-bottom: 0;
+  }
+
+  .student-table td {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 14px;
+
+    padding: 12px;
+
+    border-bottom: 1px solid #edf1f5;
+
+    font-size: 14px;
+  }
+
+  .student-table td:last-child {
+    border-bottom: none;
+  }
+
+  .student-table td::before {
+    content: attr(data-label);
+
+    flex-shrink: 0;
+
+    color: var(--text-muted);
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.05em;
+  }
+
+  .student-table td.actions-col {
+    justify-content: flex-end;
+  }
+
+  .student-table td.actions-col::before {
+    display: none;
+  }
+
+  .btn-small {
+    min-width: 56px;
+
+    height: 33px;
+
+    padding: 0 10px;
+
+    font-size: 12px;
+  }
+
+  .btn-danger {
+    min-width: 62px;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 400px) {
+
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .form-actions .btn {
+    width: 100%;
+  }
+
+  .btn-small {
+    min-width: 54px;
+
+    height: 32px;
+
+    font-size: 12px;
+  }
+
+  .btn-danger {
+    min-width: 60px;
+  }
+}
