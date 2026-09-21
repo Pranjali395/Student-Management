@@ -27,16 +27,35 @@ router.post("/", async (req, res) => {
 // PUT /api/students/:id
 router.put("/:id", async (req, res) => {
   try {
-    const { name, email, course, year } = req.body;
+    const { name, email, course, year, status } = req.body;
+
     const updated = await Student.findByIdAndUpdate(
       req.params.id,
-      { name, email, course, year },
-      { new: true, runValidators: true }
+      {
+        name,
+        email,
+        course,
+        year,
+        status: status || "Active",
+      },
+      {
+        new: true,
+        runValidators: true,
+      }
     );
-    if (!updated) return res.status(404).json({ message: "Student not found" });
+
+    if (!updated) {
+      return res.status(404).json({
+        message: "Student not found",
+      });
+    }
+
     res.json(updated);
   } catch (err) {
-    res.status(400).json({ message: "Failed to update student", error: err.message });
+    res.status(400).json({
+      message: "Failed to update student",
+      error: err.message,
+    });
   }
 });
 
